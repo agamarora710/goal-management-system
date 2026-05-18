@@ -4,8 +4,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/joho/godotenv"
-
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -13,12 +11,6 @@ import (
 var DB *gorm.DB
 
 func ConnectDB() {
-
-	err := godotenv.Load()
-
-	if err != nil {
-		log.Fatal("Error loading .env")
-	}
 
 	dsn := os.Getenv("DATABASE_URL")
 
