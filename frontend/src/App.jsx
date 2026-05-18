@@ -1,10 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-import Login from "./pages/Login"
-import EmployeeDashboard from "./pages/EmployeeDashboard"
-import ManagerDashboard from "./pages/ManagerDashboard"
-import AdminDashboard from "./pages/AdminDashboard"
-
+import Login from "./pages/Login.jsx"
+import EmployeeDashboard from "./pages/EmployeeDashboard.jsx"
+import ManagerDashboard from "./pages/ManagerDashboard.jsx"
+import AdminDashboard from "./pages/AdminDashboard.jsx"
 function App() {
   return (
     <BrowserRouter>
