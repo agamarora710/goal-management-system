@@ -1,0 +1,251 @@
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "name": "Vinod",
+  "email": "vinod@gmail.com",
+  "password": "345678",
+  "role": "manager"
+}
+
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "eva@gmail.com",
+  "password": "123456"
+}
+
+###
+GET http://localhost:3000/protected
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNDA0OTksInJvbGUiOiJlbXBsb3llZSIsInVzZXJJZCI6MX0.77MUNA8CMAP7l_7BGGF90_o525et685zNYqdTyFuPKw
+
+
+###
+POST http://localhost:3000/goals
+Authorization: 
+Content-Type: application/json
+
+{
+  "title": "Create Frontend",
+  "description": "Increase quarterly revenue",
+  "goalType": "NUMERIC_MAX",
+  "targetValue": 100000,
+  "weightage": 30
+}
+
+###
+POST http://localhost:3000/submit-goals
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNDA0OTksInJvbGUiOiJlbXBsb3llZSIsInVzZXJJZCI6MX0.77MUNA8CMAP7l_7BGGF90_o525et685zNYqdTyFuPKw
+
+###
+GET http://localhost:3000/manager/goals
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNDU0MzAsInJvbGUiOiJtYW5hZ2VyIiwidXNlcklkIjoyfQ.cYGcszy5wGhMqpVj8d-zsTdoqfc1pA_PYtChbVDErX4
+
+###
+PUT http://localhost:3000/manager/goals/15/approve
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNDU0MzAsInJvbGUiOiJtYW5hZ2VyIiwidXNlcklkIjoyfQ.cYGcszy5wGhMqpVj8d-zsTdoqfc1pA_PYtChbVDErX4
+
+###
+PUT http://localhost:3000/manager/goals/16/edit
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNDU0MzAsInJvbGUiOiJtYW5hZ2VyIiwidXNlcklkIjoyfQ.cYGcszy5wGhMqpVj8d-zsTdoqfc1pA_PYtChbVDErX4
+Content-Type: application/json
+
+{
+  
+  "targetValue": 120000,
+  "weightage": 35
+
+}
+
+###
+POST http://localhost:3000/manager/shared-goal
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNDU0MzAsInJvbGUiOiJtYW5hZ2VyIiwidXNlcklkIjoyfQ.cYGcszy5wGhMqpVj8d-zsTdoqfc1pA_PYtChbVDErX4
+Content-Type: application/json
+
+{
+  "title": "Increase Department Revenue",
+  "description": "Increase total department sales",
+  "goalType": "NUMERIC_MAX",
+  "targetValue": 1000000,
+  "primaryOwnerId": 2,
+  "employeeIds": [3,4,5]
+}
+###
+PUT http://localhost:3000/goals/16/progress
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNDA0OTksInJvbGUiOiJlbXBsb3llZSIsInVzZXJJZCI6MX0.77MUNA8CMAP7l_7BGGF90_o525et685zNYqdTyFuPKw
+Content-Type: application/json
+
+{
+  "achievedValue": 70000,
+  "status": "On Track"
+}
+###
+POST http://localhost:3000/manager/goals/16/checkin
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNDU0MzAsInJvbGUiOiJtYW5hZ2VyIiwidXNlcklkIjoyfQ.cYGcszy5wGhMqpVj8d-zsTdoqfc1pA_PYtChbVDErX4
+Content-Type: application/json
+
+{
+  "quarter": "Q1",
+  "comment": "Good progress. Need faster execution next quarter."
+}
+###
+POST http://localhost:3000/goals/16/quarterly-update
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNDA0OTksInJvbGUiOiJlbXBsb3llZSIsInVzZXJJZCI6MX0.77MUNA8CMAP7l_7BGGF90_o525et685zNYqdTyFuPKw
+Content-Type: application/json
+
+{
+  "quarter": "Q1",
+  "plannedValue": 25000,
+  "actualValue": 22000,
+  "status": "On Track"
+}
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "name": "HR admin",
+  "email": "hr@gmail.com",
+  "password": "123456",
+  "role": "admin"
+}
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "hr@gmail.com",
+  "password": "123456"
+}
+###
+PUT http://localhost:3000/admin/goals/16/unlock
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNTcxNTUsInJvbGUiOiJhZG1pbiIsInVzZXJJZCI6M30.NFMX12bQG83WFqPg9H2tfqXm9jU_8kvnUgsSQV3JSU8
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "name": "new",
+  "email": "new@gmail.com",
+  "password": "123456",
+  "role": "manager",
+  "department": "Engineering"
+}
+###
+GET http://localhost:3000/manager/team-dashboard
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNjAwOTQsInJvbGUiOiJtYW5hZ2VyIiwidXNlcklkIjo2fQ.kKagv29xRN3aZIvDowIuR-pC1Kf6RSn4veWjf5IL2J8
+###
+POST http://localhost:3000/goals/16/quarterly-update
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNjAzMzAsInJvbGUiOiJlbXBsb3llZSIsInVzZXJJZCI6NX0.JAql3dt0ow5wsKrDzr0MuOSY3ObHSAR493CnYEUDwjM
+Content-Type: application/json
+
+{
+  "quarter": "Q1",
+  "plannedValue": 25000,
+  "actualValue": 22000,
+  "status": "On Track"
+}
+
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "name": "Engineering Manager",
+  "email": "manager@gmail.com",
+  "password": "123456",
+  "role": "manager",
+  "department": "Engineering"
+}
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "name": "Aman",
+  "email": "aman@gmail.com",
+  "password": "123456",
+  "role": "employee",
+  "department": "Engineering"
+}
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "aman@gmail.com",
+  "password": "123456"
+}
+###
+POST http://localhost:3000/goals
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNjA5NjUsInJvbGUiOiJlbXBsb3llZSIsInVzZXJJZCI6Mn0.ZLQxix2y6hJ8Jbpi6gCum8mxxRWL-_WYXKR6I6FFu_M
+Content-Type: application/json
+
+{
+  "title": "Create Backend",
+  "description": "Build KPI backend",
+  "goalType": "NUMERIC_MAX",
+  "targetValue": 100000,
+  "weightage": 100
+}
+###
+POST http://localhost:3000/goals/1/quarterly-update
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNjA5NjUsInJvbGUiOiJlbXBsb3llZSIsInVzZXJJZCI6Mn0.ZLQxix2y6hJ8Jbpi6gCum8mxxRWL-_WYXKR6I6FFu_M
+Content-Type: application/json
+
+{
+  "quarter": "Q1",
+  "plannedValue": 25000,
+  "actualValue": 22000,
+  "status": "On Track"
+}
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "manager@gmail.com",
+  "password": "123456"
+}
+###
+GET http://localhost:3000/manager/team-dashboard
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzkwNjEwMzcsInJvbGUiOiJtYW5hZ2VyIiwidXNlcklkIjoxfQ.ndHjxxDc16rU706Gvb-MWQg11mXj8iBvjXR0OATkaNY
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "name": "agam",
+  "email": "agam@gmail.com",
+  "password": "123456",
+  "role": "employee",
+  "department": "Engineering"
+}
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "agam@gmail.com",
+  "password": "123456"
+}
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "name": "HR admin",
+  "email": "hr@gmail.com",
+  "password": "123456",
+  "role": "admin"
+}
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "hr@gmail.com",
+  "password": "123456"
+}
